@@ -14,10 +14,17 @@ class Persona {
         string clave;
 
     public:
+        int codigo;
+        string nombre;
+        int telefono;
+        
         Persona ( ) { }
-        Persona(string email, string clave) {
+        Persona(string email, string clave, int codigo, string nombre, int telefono) {
             this->email = email;
             this->clave = clave;
+            this->codigo = codigo;
+            this->nombre = nombre;
+            this->telefono = telefono;
         }
 };
 
@@ -32,7 +39,7 @@ class Cliente : public Persona{
         int ruc;
         string direccion;
         Cliente() { }
-        Cliente (string email, string clave, int codigo, string nombre, int telefono, char categoria, int ruc, string direccion) : Persona(email, clave) {
+        Cliente (string email, string clave, int codigo, string nombre, int telefono, char categoria, int ruc, string direccion) : Persona(email, clave, codigo, nombre, telefono) {
             this->codigo = codigo;
             this->nombre = nombre;
             this->telefono = telefono;
@@ -55,8 +62,6 @@ class ClienteIndividual : public Cliente {
 };
 
 class ClienteCorporativo : public Cliente {
-
-    
     public:
         ClienteCorporativo() { }
         ClienteCorporativo(string email, string clave, int codigo, string nombre, int telefono, char categoria, int ruc, string direccion) : Cliente(email, clave, codigo, nombre, telefono, categoria, ruc, direccion) {
@@ -66,7 +71,11 @@ class ClienteCorporativo : public Cliente {
 
 class Vendedores : public Personas {
 
-}
+    public:
+
+
+
+};
 
 
 
