@@ -1,4 +1,9 @@
 #include <iostream>
+#include <string>
+#include <vector>
+
+#include "clases.h"
+
 using namespace std;
 
 void agregarNuevoCliente() {
