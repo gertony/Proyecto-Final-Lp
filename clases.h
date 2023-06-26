@@ -31,6 +31,7 @@ class Cliente : public Persona{
         char categoria;
         int ruc;
         string direccion;
+        Cliente() { }
         Cliente (string email, string clave, int codigo, string nombre, int telefono, char categoria, int ruc, string direccion) : Persona(email, clave) {
             this->codigo = codigo;
             this->nombre = nombre;
