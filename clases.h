@@ -72,12 +72,31 @@ class ClienteCorporativo : public Cliente {
 class Vendedores : public Personas {
 
     public:
+        int codigo;
+        double salario;
 
-
-
+    Vendedores(int codigo, string nombre, double salario) {
+        this->codigo = codigo;
+        this->nombre = nombre;
+        this->salario = salario;
+    }
 };
 
+void insertarNuevoVendedor(int codigo, string nombre, double salario, vector<Vendedores>& vendedores) {
+    bool vendedorExistente = false;
+    for (auto& vendedor : vendedores) {
+        if (vendedor.nombre == nombre) {
+            vendedorExistente = true;
+            break;
+        }
+    }
 
-
-
+    if (vendedorExistente) {
+        cout<<"ERR0R, vendedor ya registrado"<<endl;
+    } else {
+        Vendedores nuevoVendedor(codigo, nombre, salario);
+        vendedores.push_back(nuevoVendedor);
+        cout<<"Se agregará el nuevo vendedor..."<<nuevoVendedor.nombre<<endl;
+    }
+}
 #endif
