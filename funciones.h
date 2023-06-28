@@ -13,8 +13,23 @@ void agregarNuevoCliente() {
     cout << "Opción: Agregar nuevo cliente" << endl;
 }
 
-void buscarCliente() {
-    cout << "Opción: Buscar cliente" << endl;
+void buscarCliente(int codigo, vector<Cliente>& clientes) {
+        Cliente cl;
+        bool clienteExistente=false;
+        for (auto& cliente:clientes){
+            if (cliente.codigo==codigo){
+                cl=cliente;
+                clienteExistente=true;
+                break;
+            }
+        }
+        if (clienteExistente){
+            cout<<"Si existe (nombre, codigo, telefono, categoria, RUC, direccion)"<<endl;
+            cout<<cl;
+        }
+        else{
+            cout<<"El cliente no existe en la lista."<<endl;
+        }
 }
 
 void agregarNuevoVendedor(string nombre, vector<Vendedores>& vendedores) {
@@ -50,11 +65,11 @@ void realizarVenta() {
 }
 
 void mostrarListaClientes() {
-    cout << "Opción: Mostrar lista de clientes" << endl;
+    cout<<"Mostar Lista de Clientes."<<endl;
 }
 
 void mostrarListaVendedores() {
-    cout << "Opción: Mostrar lista de vendedores" << endl;
+    cout<<"Mostrar Lista de Vendedores"<<endl;
 }
 
 
