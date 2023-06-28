@@ -56,8 +56,49 @@ void agregarNuevoVendedor(string nombre, vector<Vendedores>& vendedores) {
     }
 }
 
-void agregarNuevoProducto() {
-    cout << "Opción: Agregar nuevo producto" << endl;
+void agregarNuevoProducto(vector<Producto>& productos) {
+    cout << "Opcion: Nuevo Producto" << endl;
+    int codigo;
+    string descripcion;
+    double precio;
+    string tipo;
+    int stock;
+    int capacidad;
+
+    cout << "Ingrese el codigo del producto: ";
+    cin >> codigo;
+
+    cout << "Ingrese la descripcion del producto: ";
+     cin >>descripcion;
+
+    while (true) {
+        cout << "Ingrese el precio del producto: ";
+        if (cin >> precio && precio >= 0) {
+            break;
+        } else {
+            cout << "ERR0R: El precio no puede ser negativo, intente nuevamente" << endl;
+        }
+    }
+    cout << "Ingrese el tipo del producto: ";
+    cin >> tipo;
+
+    cout << "Ingrese el stock del producto: ";
+    cin >> stock;
+
+    while (true) {
+        cout << "Ingrese la capacidad del producto: ";
+        if (cin>>capacidad && capacidad <= 5) {
+            break;
+        } else {
+            cout<<"ERR0R: La capacidad no puede exceder a 5, intente nuevamente"<<endl;
+
+        }
+    }
+
+    Producto nuevoProducto(codigo, descripcion, precio, tipo, stock, capacidad);
+    productos.push_back(nuevoProducto);
+
+    cout << "Producto agregado correctamente." << endl;
 }
 
 void realizarVenta() {
