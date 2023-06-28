@@ -84,6 +84,24 @@ class Vendedores : public Persona {
         this->salario = salario;
     }
 };
+class Producto {
+public:
+    int codigo;
+    string descripcion;
+    double precio;
+    string tipo;
+    int stock;
+    int capacidad;
 
+    Producto() {}
+    Producto(int codigo, string descripcion, double precio, string tipo, int stock, int capacidad) {
+        this->codigo = codigo;
+        this->descripcion = descripcion;
+        this->precio = precio;
+        this->tipo = tipo;
+        this->stock = stock;
+        this->capacidad = capacidad;
+    }
+};
 
 #endif
