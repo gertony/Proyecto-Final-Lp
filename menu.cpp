@@ -45,7 +45,7 @@ int main() {
 			agregarNuevoVendedor();
 			break;
 		case 4:
-			agregarNuevoProducto();
+			agregarNuevoProducto(productos);
 			break;
 		case 5:
 			realizarVenta();
