@@ -47,6 +47,10 @@ class Cliente : public Persona{
             this->ruc = ruc;
             this->direccion = direccion;
         }
+    friend ostream& operator<<(ostream& o, const Cliente& cliente){
+        o<<"- Cliente: "<<cliente.nombre<<" "<<cliente.codigo<<" "<<cliente.telefono<<" "<<cliente.categoria<<" "<<cliente.ruc<<" "<<cliente.direccion<<endl;
+        return o;
+    }
 
 };
 
