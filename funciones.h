@@ -17,8 +17,28 @@ void buscarCliente() {
     cout << "Opción: Buscar cliente" << endl;
 }
 
-void agregarNuevoVendedor() {
-    cout << "Opción: Agregar nuevo vendedor" << endl;
+void agregarNuevoVendedor(string nombre, vector<Vendedores>& vendedores) {
+    bool vendedorExistente = false;
+    for (auto& vendedor : vendedores) {
+        if (vendedor.nombre == nombre) {
+            vendedorExistente = true;
+            break;
+        }
+    }
+
+    if (vendedorExistente) {
+        cout<<"ERR0R, vendedor ya registrado"<<endl;
+    } else {
+        int codigo;
+        double salario;
+        cout<<"Ingrese el codigo del cliente: ";
+        cin>>codigo;
+        cout<<"Ingrese el salario del vendedor: ";
+        cin>>salario;
+        Vendedores nuevoVendedor(codigo, nombre, salario);
+        vendedores.push_back(nuevoVendedor);
+        cout<<"Se agregará el nuevo vendedor..."<<nuevoVendedor.nombre<<endl;
+    }
 }
 
 void agregarNuevoProducto() {
@@ -37,30 +57,6 @@ void mostrarListaVendedores() {
     cout << "Opción: Mostrar lista de vendedores" << endl;
 }
 
-int obtenerOpcion() {
-    int opcion;
-    string entrada;
 
-    while (true) {
-        getline(cin, entrada);
-
-        bool esNumerico = true;
-        for (char c : entrada) {
-            if (!isdigit(c)) {
-                esNumerico = false;
-                break;
-            }
-        }
-
-        if (esNumerico) {
-            opcion = stoi(entrada);  
-            break;
-        } else {
-            cout << "Opción inválida. Intente nuevamente: ";
-        }
-    }
-
-    return opcion;
-}
 
 #endif
